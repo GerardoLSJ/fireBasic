@@ -2,6 +2,9 @@ body{
     background-color: #333;
     color: #DDD;
 }
-.big{
-    font-size: 25px;
+.margin{
+    margin-top:     20vh;
+    margin-right:   30vw;
+    margin-left:    30vw;
+    
 }

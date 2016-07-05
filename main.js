@@ -16,17 +16,22 @@ function pushUserData( name, email) {
     console.log(users);
     });
 */
-var data = [];
+var obj;
+var result;
 firebase.database().ref('users').on('value', function(snapshot) { 
-    data = (snapshot.val());
-
-    data.username.forEach(function(element) {
-         $("#list").append('<li></li>');
-        
-    });
+    obj = (snapshot.val());
+    var arr = [];
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            arr.push(obj[key].username);
+        }
+    };
+    result = arr;
+     for(var i in result){
+           $("#list").append('<li>'+result[i]+'</li>');
+       
+      }
 })
-
-
 
 
 
@@ -38,7 +43,11 @@ $(document).ready(function(){
         pushUserData( name, pass);
         console.log("Pushed");
         document.getElementById("fire").reset();
+     
+             
+            
        
+      
 
     });
 });
